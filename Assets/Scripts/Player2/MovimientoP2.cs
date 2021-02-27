@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimientoP1 : MonoBehaviour
+public class MovimientoP2 : MonoBehaviour
 {
     public float speed;
+    public float salto;
+    public bool isGrounded=false;
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
@@ -19,15 +21,15 @@ public class MovimientoP1 : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 movimiento= new Vector3(Input.GetAxis("Horizontal"),0f,0f);
+        Jump();
+        Vector3 movimiento= new Vector3(Input.GetAxis("Horizontal2"),0f,0f);
         transform.position += movimiento*speed*Time.deltaTime;
     }
     void Jump()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump2") && isGrounded==true)
         {
-            rb2d.AddForce(new Vector2(0f,5f), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(0f,salto), ForceMode2D.Impulse);
         }
     }
-    
 }
