@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a95dde0e7e401f4899664a0c6744612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.8
-  salto: 5
+  speed: 5.5
+  salto: 10
   isGrounded: 0
 --- !u!61 &603391843
 BoxCollider2D:
@@ -910,12 +910,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!23 &603391845
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2231,8 +2231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e278cbb5222394fbac9312ffc266e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.8
-  salto: 5
+  speed: 5.5
+  salto: 10
   isGrounded: 0
 --- !u!50 &1590399317
 Rigidbody2D:
@@ -2249,7 +2249,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
