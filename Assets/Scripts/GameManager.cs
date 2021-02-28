@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public bool move3;
     public bool move4;
     public bool gameStart;
+    public float timeRemaining = 300;
+    public bool timerIsRunning = false;
     
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,6 @@ public class GameManager : MonoBehaviour
         Number2.gameObject.SetActive(false);
         Number1.gameObject.SetActive(false);
         TheTime.gameObject.SetActive(false);
-
         StartCoroutine(GameCount());
     }
 
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
     {
         if(gameStart == true){
         float t = Time.time - startTime;
-        
+        timerIsRunning=true;
         if(spikeNumber == 1){
         if(DownSpike.transform.position.y > 0.11f){
             move1 = false;
@@ -107,10 +108,24 @@ public class GameManager : MonoBehaviour
         }
         }
 
-        string minutes = ((int) t /60).ToString();
-        string seconds = (t % 60).ToString("f0");
+        //string minutes = ((int) t /60).ToString();
+        //string seconds = (t % 60).ToString("f0");
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Time has run out!");
+                timeRemaining = 0;
+                timerIsRunning = false;
+            }
+        }
 
-        txtTime.text = minutes + ":" + seconds; 
+        //txtTime.text = minutes + ":" + seconds; 
         }
         txtPointsP1.text = "Manueh: " + deathObject.pointsP1;
         txtPointsP2.text = "Antonioh: " + deathObject.pointsP2;
@@ -139,5 +154,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(8f);
         StartCoroutine(SpikesTurn());
         yield break;
+    }
+     void DisplayTime(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        txtTime.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
