@@ -6,7 +6,7 @@ public class MovimientoP1 : MonoBehaviour
 {
     public float speed;
     public float salto;
-    public bool isGrounded=false;
+
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class MovimientoP1 : MonoBehaviour
     }
     void Jump()
     {
-        if(Input.GetButtonDown("Jump1") && isGrounded==true)
+        if(Input.GetButtonDown("Jump1") && Mathf.Abs(rb2d.velocity.y)<0.001f)
         {
             rb2d.AddForce(new Vector2(0f,salto), ForceMode2D.Impulse);
         }
