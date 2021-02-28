@@ -7,16 +7,17 @@ public class Botones : MonoBehaviour
     public DeathObject deathObject;
     public int colorButton;
     public GameObject funcion;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(colorButton == 1){
@@ -35,5 +36,6 @@ public class Botones : MonoBehaviour
               
         }
         }
+    
     }
 }
