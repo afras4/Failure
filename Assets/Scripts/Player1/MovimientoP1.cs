@@ -7,6 +7,7 @@ public class MovimientoP1 : MonoBehaviour
     public float speed;
     public float salto;
     public bool isFlipped;
+    private Animator anim;
 
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class MovimientoP1 : MonoBehaviour
     {
         isFlipped = false;
         rb2d = GetComponent<Rigidbody2D> ();
+        anim = GetComponent<Animator> ();
     }
     
     // Update is called once per frame
@@ -24,8 +26,29 @@ public class MovimientoP1 : MonoBehaviour
     void FixedUpdate()
     {
         Jump();
-        Vector3 movimiento= new Vector3(Input.GetAxis("Horizontal1"),0f,0f);
+        Vector3 movimiento= new Vector3(Input.GetAxis("Horizontal1"),0f,0f); 
         transform.position += movimiento*speed*Time.deltaTime;
+        if (Input.GetKey (KeyCode.D)) 
+		{
+			
+			transform.localScale = new Vector3 (3.669608f, 3.669608f, 0f);
+		}
+        if (Input.GetKey (KeyCode.A)) 
+		{
+			
+			
+			transform.localScale = new Vector3 (-3.669608f, 3.669608f, 0f);
+		}
+        if(Input.GetAxis("Horizontal1")!=0)
+        {
+            anim.Play("MonoRun");
+        }
+        else
+        {
+            anim.Play("MonoIddle");
+        }
+
+
     }
     void Jump()
     {
