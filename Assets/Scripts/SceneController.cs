@@ -33,15 +33,13 @@ public class SceneController : MonoBehaviour
         main.SetActive(true);
     }
     public void LoadScene(string scenename)
-    {
-        	var squares = new SquaresTransition()
+		{
+			var slices = new TriangleSlicesTransition()
 			{
 				nextScene = SceneManager.GetActiveScene().buildIndex == 1 ? 2 : 1,
-				duration = 2.0f,
-				squareSize = new Vector2( 5f, 4f ),
-				smoothness = 0.0f
+				divisions = Random.Range( 2, 6 )
 			};
-			TransitionKit.instance.transitionWithDelegate( squares );
-    }
+			TransitionKit.instance.transitionWithDelegate( slices );
+		}
     
 }

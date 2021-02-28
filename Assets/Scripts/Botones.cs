@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Botones : MonoBehaviour
 {
-    public DeathObject deathObject;
+    public DeathObject[] deathObject;
     public int colorButton;
     public GameObject funcion;
 
@@ -22,7 +22,10 @@ public class Botones : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(colorButton == 1){
         if(other.gameObject.tag == "Player1"){
-            deathObject.color = 1;
+            deathObject[0].color = 1;
+            deathObject[1].color = 1;
+            deathObject[2].color = 1;
+            deathObject[3].color = 1;
             funcion.GetComponent<Boton> ().spawn();
             this.gameObject.SetActive(false);
             
@@ -30,7 +33,10 @@ public class Botones : MonoBehaviour
         }
         if(colorButton == 2){
         if(other.gameObject.tag == "Player2"){
-            deathObject.color = 2;
+            deathObject[0].color = 2;
+            deathObject[1].color = 2;
+            deathObject[2].color = 2;
+            deathObject[3].color = 2;
             funcion.GetComponent<Boton> ().spawn();
             this.gameObject.SetActive(false);
               

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject TopSpike;
     public GameObject RightSpike;
     public GameObject LeftSpike;
+    public int spikeNumber;
     public bool move1;
     public bool move2;
     public bool move3;
@@ -47,6 +48,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameStart == true){
+        float t = Time.time - startTime;
+        
+        if(spikeNumber == 1){
         if(DownSpike.transform.position.y > 0.11f){
             move1 = false;
         }
@@ -58,7 +63,9 @@ public class GameManager : MonoBehaviour
         }else{
             DownSpike.transform.position = new Vector2(DownSpike.transform.position.x , DownSpike.transform.position.y - moveSpeed * Time.deltaTime);
         }
+        }
 
+        if(spikeNumber == 2){
         if(TopSpike.transform.position.y > 2.032f){
             move2 = true;
         }
@@ -70,7 +77,9 @@ public class GameManager : MonoBehaviour
         }else{
             TopSpike.transform.position = new Vector2(TopSpike.transform.position.x , TopSpike.transform.position.y + moveSpeed * Time.deltaTime);
         }
+        }
 
+        if(spikeNumber == 3){
         if(LeftSpike.transform.position.x > -0.002f){
             move3 = false;
         }
@@ -82,7 +91,9 @@ public class GameManager : MonoBehaviour
         }else{
             LeftSpike.transform.position = new Vector2(LeftSpike.transform.position.x - moveSpeed1 * Time.deltaTime, LeftSpike.transform.position.y);
         }
+        }
 
+        if(spikeNumber == 4){
         if(RightSpike.transform.position.x > 3.36f){
             move4 = true;
         }
@@ -94,10 +105,7 @@ public class GameManager : MonoBehaviour
         }else{
             RightSpike.transform.position = new Vector2(RightSpike.transform.position.x + moveSpeed1 * Time.deltaTime, RightSpike.transform.position.y);
         }
-
-        if(gameStart == true){
-        float t = Time.time - startTime;
-        
+        }
 
         string minutes = ((int) t /60).ToString();
         string seconds = (t % 60).ToString("f0");
@@ -123,5 +131,13 @@ public class GameManager : MonoBehaviour
         Players.gameObject.SetActive(true);
         startTime = Time.time;
         gameStart = true;
+        StartCoroutine(SpikesTurn());
+    }
+    IEnumerator SpikesTurn()
+    {
+        spikeNumber = Random.Range(1,4);
+        yield return new WaitForSeconds(8f);
+        StartCoroutine(SpikesTurn());
+        yield break;
     }
 }
