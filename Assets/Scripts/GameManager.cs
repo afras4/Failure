@@ -10,29 +10,45 @@ public class GameManager : MonoBehaviour
     public Text txtPointsP2;
     public Text txtTime;
     private float startTime;
+    float dirY, moveSpeed = 0.08f;
     public GameObject Number3;
     public GameObject Number2;
     public GameObject Number1;
     public GameObject TheTime;
     public GameObject Players;
+    public GameObject DownSpike;
     public bool gameStart;
+    public bool move1;
 
     // Start is called before the first frame update
     void Start()
     {
         gameStart=false;
-        
+        move1=true;
         Players.gameObject.SetActive(false);
         Number3.gameObject.SetActive(false);
         Number2.gameObject.SetActive(false);
         Number1.gameObject.SetActive(false);
         TheTime.gameObject.SetActive(false);
+
         StartCoroutine(GameCount());
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(DownSpike.transform.position.y > 0.11f){
+            move1 = false;
+        }
+        if(DownSpike.transform.position.y < -0.05f){
+            move1 = true;
+        }
+        if(move1){
+            DownSpike.transform.position = new Vector2(DownSpike.transform.position.x , DownSpike.transform.position.y + moveSpeed * Time.deltaTime);
+        }else{
+            DownSpike.transform.position = new Vector2(DownSpike.transform.position.x , DownSpike.transform.position.y - moveSpeed * Time.deltaTime);
+        }
+
         if(gameStart == true){
         float t = Time.time - startTime;
         
@@ -47,6 +63,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GameCount()
     {
+        yield return new WaitForSeconds(1.5f);
         Number3.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         Number3.gameObject.SetActive(false);
