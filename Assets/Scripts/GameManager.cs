@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
 
         txtTime.text = minutes + ":" + seconds; 
         }
-        txtPointsP1.text = "PuntosP1: " + deathObject.pointsP1;
-        txtPointsP2.text = "PuntosP2: " + deathObject.pointsP2;
+        txtPointsP1.text = "Manueh: " + deathObject.pointsP1;
+        txtPointsP2.text = "Antonioh: " + deathObject.pointsP2;
     }
     IEnumerator GameCount()
     {

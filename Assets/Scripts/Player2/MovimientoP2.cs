@@ -6,11 +6,13 @@ public class MovimientoP2 : MonoBehaviour
 {
     public float speed;
     public float salto;
+    public bool isFlipped;
 
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
+        isFlipped = false;
         rb2d = GetComponent<Rigidbody2D> ();
     }
     
@@ -30,6 +32,21 @@ public class MovimientoP2 : MonoBehaviour
         if(Input.GetButtonDown("Jump2") && Mathf.Abs(rb2d.velocity.y)<0.001f)
         {
             rb2d.AddForce(new Vector2(0f,salto), ForceMode2D.Impulse);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(isFlipped == false){
+        if (other.gameObject.tag == "Player1")
+        {
+            rb2d.AddForce(new Vector2(4, 4), ForceMode2D.Impulse);
+        }
+        }
+        if(isFlipped == true){
+        if (other.gameObject.tag == "Player1")
+        {
+            rb2d.AddForce(new Vector2(-4, 4), ForceMode2D.Impulse);
+        }
         }
     }
 }
