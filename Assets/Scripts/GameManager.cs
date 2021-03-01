@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     public bool timerIsRunning = false;
     public int spikeNumber;
     private float startTime;
-    public float timeRemaining = 300;
+    public float timeRemaining = 10;
     float dirY, moveSpeed = 0.08f;
     float dirX, moveSpeed1 = 0.08f;
     public AudioSource fightMusic;
@@ -135,10 +136,26 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
+                if(deathObject.pointsP1>deathObject.pointsP2)
+                {
+                    SceneManager.LoadScene("VictoriaMono");	
+                }
+                else
+                {
+                    SceneManager.LoadScene("VictoriaPato");
+                }
             }
         }
 
         //txtTime.text = minutes + ":" + seconds; 
+        }
+        if(deathObject.pointsP1>=5)
+        {
+            SceneManager.LoadScene("VictoriaMono");	
+        }
+        if(deathObject.pointsP2>=5)
+        {
+            SceneManager.LoadScene("VictoriaPato");	
         }
         txtPointsP1.text = "Manueh: " + deathObject.pointsP1;
         txtPointsP2.text = "Antonioh: " + deathObject.pointsP2;
