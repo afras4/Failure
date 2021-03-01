@@ -7,7 +7,6 @@ public class MovimientoP1 : MonoBehaviour
     public float speed;
     public float salto;
     public bool isFlipped;
-    public bool jumped;
     private Animator anim;
     public AudioSource walk;
     public AudioSource hurt;
@@ -19,7 +18,6 @@ public class MovimientoP1 : MonoBehaviour
     void Start()
     {
         isFlipped = false;
-        jumped = false;
         rb2d = GetComponent<Rigidbody2D> ();
         anim = GetComponent<Animator> ();
     }
@@ -34,9 +32,6 @@ public class MovimientoP1 : MonoBehaviour
         Jump();
         Vector3 movimiento= new Vector3(Input.GetAxis("Horizontal1"),0f,0f); 
         transform.position += movimiento*speed*Time.deltaTime;
-        if(Mathf.Abs(rb2d.velocity.y)<0.001f){
-            jumped = false;
-        }
         if (Input.GetKey (KeyCode.D)) 
 		{
 			isFlipped = false;
@@ -60,11 +55,10 @@ public class MovimientoP1 : MonoBehaviour
     }
     void Jump()
     {
-        if(Input.GetButtonDown("Jump1") && jumped == false)
+        if(Input.GetButtonDown("Jump1") && Mathf.Abs(rb2d.velocity.y)<0.001f)
         {
             jump.Play();
             rb2d.AddForce(new Vector2(0f,salto), ForceMode2D.Impulse);
-            jumped = true;
             
         }
     }
