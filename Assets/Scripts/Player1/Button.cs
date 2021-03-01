@@ -8,15 +8,18 @@ public class Button : MonoBehaviour
     public GameObject [] botones;
     public GameObject[] activar;
     public int colorButton;
+    public AudioSource pressButton;
 
+    //botonesdecolor
     private void OnCollisionEnter2D(Collision2D other) {
         if(colorButton == 1){
         if(other.gameObject.tag == "Player1"){
+            pressButton.Play();
             deathObject[0].color = 1;
             deathObject[1].color = 1;
             deathObject[2].color = 1;
             deathObject[3].color = 1;
-            
+
             activar[1].SetActive(true);
             activar[3].SetActive(true);
             activar[5].SetActive(true);
@@ -31,6 +34,7 @@ public class Button : MonoBehaviour
         }
         if(colorButton == 2){
         if(other.gameObject.tag == "Player2"){
+            pressButton.Play();
             deathObject[0].color = 2;
             deathObject[1].color = 2;
             deathObject[2].color = 2;

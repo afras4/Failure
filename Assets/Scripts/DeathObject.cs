@@ -15,6 +15,9 @@ public class DeathObject : MonoBehaviour
     public Texture2D maskTexture;
     public Texture2D maskTexture2;
     SpriteRenderer m_SpriteRenderer;
+    public AudioSource go;
+    public AudioSource ready;
+    public AudioSource explode;
 
     void Start() {
         color = 0;
@@ -38,7 +41,6 @@ public class DeathObject : MonoBehaviour
         if(color == 1){
         if(other.gameObject.tag == "Player1"){
             pointsP1 = pointsP1 + 1;
-
 			var mask = new ImageMaskTransition()
 			{
 				maskTexture = maskTexture,
@@ -51,7 +53,6 @@ public class DeathObject : MonoBehaviour
         if(color == 2){
         if(other.gameObject.tag == "Player2"){
             pointsP2 = pointsP2 + 1;
-
             var mask = new ImageMaskTransition()
 			{
 				maskTexture = maskTexture2 ,
@@ -64,9 +65,15 @@ public class DeathObject : MonoBehaviour
         
         IEnumerator Respawn()
         {
-        yield return new WaitForSeconds(1.8f);
+        explode.Play();
+        yield return new WaitForSeconds(0.9f);
+        ready.Play();
+        yield return new WaitForSeconds(0.9f);
+        go.Play();
         player1.transform.position = initPos1.position;
         player2.transform.position = initPos2.position;
+        color = 0;
+        m_SpriteRenderer.color = Color.white;
         }
     }
 }

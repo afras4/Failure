@@ -16,8 +16,8 @@ public class Boton : MonoBehaviour
     }
     public void spawn()
     {
-        int ran=Random.Range(1, 3);
-        int ran2=Random.Range(1,3);
+        int ran=Random.Range(1, 5);
+        int ran2=Random.Range(1,5);
         Debug.Log("  " + ran);
         Debug.Log("  " + ran2);
         switch(ran)
@@ -28,6 +28,14 @@ public class Boton : MonoBehaviour
             
             case 2:
             posicionesrojo[1].SetActive(true);
+            break;
+
+            case 3:
+            posicionesrojo[2].SetActive(true);
+            break;
+
+            case 4:
+            posicionesrojo[3].SetActive(true);
             break;
             /*
             case 3:
@@ -47,6 +55,14 @@ public class Boton : MonoBehaviour
             
             case 2:
              posicionesazul[1].SetActive(true);
+            break;
+
+            case 3:
+             posicionesazul[2].SetActive(true);
+            break;
+
+            case 4:
+             posicionesazul[3].SetActive(true);
             break;
         }
     }

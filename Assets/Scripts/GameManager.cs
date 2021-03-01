@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Text txtPointsP2;
     public Text txtTime;
 
+    public GameObject PreGameButtons;
     public GameObject Number3;
     public GameObject Number2;
     public GameObject Number1;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         move2=true;
         move3=true;
         move4=true;
+        PreGameButtons.gameObject.SetActive(true);
         Players.gameObject.SetActive(false);
         Number3.gameObject.SetActive(false);
         Number2.gameObject.SetActive(false);
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
         if(gameStart == true){
         float t = Time.time - startTime;
         timerIsRunning=true;
-        if(spikeNumber == 1){
+        if(spikeNumber == 1 || spikeNumber == 2){
         if(DownSpike.transform.position.y > 0.11f){
             move1 = false;
         }
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
         }
         }
 
-        if(spikeNumber == 2){
+        if(spikeNumber == 3 || spikeNumber == 4 || spikeNumber == 5){
         if(TopSpike.transform.position.y > 2.032f){
             move2 = true;
         }
@@ -91,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
         }
 
-        if(spikeNumber == 3){
+        if(spikeNumber == 6){
         if(LeftSpike.transform.position.x > -0.002f){
             move3 = false;
         }
@@ -105,7 +107,7 @@ public class GameManager : MonoBehaviour
         }
         }
 
-        if(spikeNumber == 4){
+        if(spikeNumber == 7){
         if(RightSpike.transform.position.x > 3.36f){
             move4 = true;
         }
@@ -143,7 +145,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GameCount()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         Number3.gameObject.SetActive(true);
         threeSound.Play();
         threeVoice.Play();
@@ -159,6 +161,7 @@ public class GameManager : MonoBehaviour
         oneVoice.Play();
         yield return new WaitForSeconds(1);
         Number1.gameObject.SetActive(false);
+        PreGameButtons.gameObject.SetActive(false);
         TheTime.gameObject.SetActive(true);
         Players.gameObject.SetActive(true);
         startTime = Time.time;
@@ -169,7 +172,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator SpikesTurn()
     {
-        spikeNumber = Random.Range(1,4);
+        spikeNumber = Random.Range(1,8);
         yield return new WaitForSeconds(8f);
         StartCoroutine(SpikesTurn());
         yield break;
