@@ -363,7 +363,7 @@ MonoBehaviour:
   gameStart: 0
   timerIsRunning: 0
   spikeNumber: 0
-  timeRemaining: 300
+  timeRemaining: 10
   fightMusic: {fileID: 709963579}
   oneSound: {fileID: 1037004899}
   twoSound: {fileID: 225235501}

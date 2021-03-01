@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public bool timerIsRunning = false;
     public int spikeNumber;
     private float startTime;
-    public float timeRemaining = 10;
+    public float timeRemaining = 180;
     float dirY, moveSpeed = 0.08f;
     float dirX, moveSpeed1 = 0.08f;
     public AudioSource fightMusic;
