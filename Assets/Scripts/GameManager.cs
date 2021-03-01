@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Prime31.TransitionKit;
 
 public class GameManager : MonoBehaviour
 {
-    public DeathObject deathObject;
+    public Texture2D maskTexture;
+    public Texture2D maskTexture2;
     public Text txtPointsP1;
     public Text txtPointsP2;
     public Text txtTime;
+    public Transform initPos1;
+    public Transform initPos2; 
 
+    public GameObject player1;
+    public GameObject player2;
     public GameObject PreGameButtons;
-    public GameObject Number3;
-    public GameObject Number2;
     public GameObject Number1;
+    public GameObject Number2;
+    public GameObject Number3;
     public GameObject TheTime;
     public GameObject Players;
     public GameObject DownSpike;
     public GameObject TopSpike;
     public GameObject RightSpike;
     public GameObject LeftSpike;
+    public GameObject[] LeButtons;
 
     public bool move1;
     public bool move2;
@@ -28,7 +35,10 @@ public class GameManager : MonoBehaviour
     public bool move4;
     public bool gameStart;
     public bool timerIsRunning = false;
+    public int color;
     public int spikeNumber;
+    public int pointsP1;
+    public int pointsP2;
     private float startTime;
     public float timeRemaining = 180;
     float dirY, moveSpeed = 0.08f;
@@ -41,6 +51,9 @@ public class GameManager : MonoBehaviour
     public AudioSource twoVoice;
     public AudioSource threeVoice;
     public AudioSource goGogo;
+    public AudioSource go;
+    public AudioSource ready;
+    public AudioSource explode;
     
     
     // Start is called before the first frame update
@@ -136,7 +149,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Time has run out!");
                 timeRemaining = 0;
                 timerIsRunning = false;
-                if(deathObject.pointsP1>deathObject.pointsP2)
+                if(pointsP1>pointsP2)
                 {
                     SceneManager.LoadScene("VictoriaMono");	
                 }
@@ -149,16 +162,16 @@ public class GameManager : MonoBehaviour
 
         //txtTime.text = minutes + ":" + seconds; 
         }
-        if(deathObject.pointsP1>=5)
+        if(pointsP1>=5)
         {
             SceneManager.LoadScene("VictoriaMono");	
         }
-        if(deathObject.pointsP2>=5)
+        if(pointsP2>=5)
         {
             SceneManager.LoadScene("VictoriaPato");	
         }
-        txtPointsP1.text = "Manueh: " + deathObject.pointsP1;
-        txtPointsP2.text = "Antonioh: " + deathObject.pointsP2;
+        txtPointsP1.text = "Manueh: " + pointsP1;
+        txtPointsP2.text = "Antonioh: " + pointsP2;
     }
     IEnumerator GameCount()
     {
@@ -202,5 +215,40 @@ public class GameManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         txtTime.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    public void onResetSet1(){
+    pointsP1 = pointsP1 + 1;
+    var mask = new ImageMaskTransition()
+			{
+				maskTexture = maskTexture,
+				backgroundColor = new Color(0.2156863f,0.5882353f,0.7333333f,1),
+			};
+			TransitionKit.instance.transitionWithDelegate( mask );
+    StartCoroutine(Respawn());
+    }
+    public void onResetSet2(){
+    pointsP2 = pointsP2 + 1;
+    var mask = new ImageMaskTransition()
+			{
+				maskTexture = maskTexture2 ,
+				backgroundColor = new Color(0.8705883f,0.3764706f,0.2588235f,1),
+			};
+			TransitionKit.instance.transitionWithDelegate( mask );
+    StartCoroutine(Respawn());
+    }
+    IEnumerator Respawn()
+        {
+        explode.Play();
+        yield return new WaitForSeconds(0.9f);
+        ready.Play();
+        for(int i = 0; i < LeButtons.Length; i++)
+        {
+            LeButtons[i].SetActive(false);
+        }
+        yield return new WaitForSeconds(0.9f);
+        go.Play();
+        color = 0;
+        player1.transform.position = initPos1.position;
+        player2.transform.position = initPos2.position;
     }
 }

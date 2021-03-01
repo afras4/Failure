@@ -13,6 +13,9 @@ public class MovimientoP2 : MonoBehaviour
     public AudioSource jump;
 
     private Rigidbody2D rb2d;
+
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,13 @@ public class MovimientoP2 : MonoBehaviour
         else
         {
             anim.Play("PatoIddle");
+        }
+        if(gameManager.pointsP1>gameManager.pointsP2){
+            speed = 3f;
+            salto = 4f;
+        }else{
+            speed = 2f;
+            salto = 3f;
         }
     }
     void Jump()

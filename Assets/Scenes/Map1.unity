@@ -166,8 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -342,28 +341,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e00e06c3fa682e4aa143aa119835594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject: {fileID: 692763442}
+  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
+  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
   txtPointsP1: {fileID: 1295816158}
   txtPointsP2: {fileID: 517604600}
   txtTime: {fileID: 401198781}
+  initPos1: {fileID: 419168373}
+  initPos2: {fileID: 1107825605}
+  player1: {fileID: 1590399315}
+  player2: {fileID: 603391841}
   PreGameButtons: {fileID: 1002100105}
-  Number3: {fileID: 412030423}
-  Number2: {fileID: 1622998755}
   Number1: {fileID: 1535253004}
+  Number2: {fileID: 1622998755}
+  Number3: {fileID: 412030423}
   TheTime: {fileID: 401198777}
   Players: {fileID: 742708875}
   DownSpike: {fileID: 346713841}
   TopSpike: {fileID: 1595677110}
   RightSpike: {fileID: 838604462}
   LeftSpike: {fileID: 393104518}
+  LeButtons:
+  - {fileID: 437453041}
+  - {fileID: 1467630246}
+  - {fileID: 1644175620}
+  - {fileID: 208645291}
+  - {fileID: 980100000}
+  - {fileID: 921017680}
+  - {fileID: 1334583526}
+  - {fileID: 1854518514}
   move1: 0
   move2: 0
   move3: 0
   move4: 0
   gameStart: 0
   timerIsRunning: 0
+  color: 0
   spikeNumber: 0
-  timeRemaining: 10
+  pointsP1: 0
+  pointsP2: 0
+  timeRemaining: 300
   fightMusic: {fileID: 709963579}
   oneSound: {fileID: 1037004899}
   twoSound: {fileID: 225235501}
@@ -372,6 +388,9 @@ MonoBehaviour:
   twoVoice: {fileID: 1699117017}
   threeVoice: {fileID: 298969511}
   goGogo: {fileID: 868869095}
+  go: {fileID: 1515934825}
+  ready: {fileID: 507019354}
+  explode: {fileID: 845331422}
 --- !u!4 &136172016
 Transform:
   m_ObjectHideFlags: 0
@@ -417,11 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 890933490}
@@ -573,11 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 1467630246}
@@ -834,8 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -1521,11 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 1644175620}
@@ -1618,8 +1624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -1800,11 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 890933490}
@@ -1942,11 +1943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 1364622517}
@@ -2341,18 +2338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 136172015}
 --- !u!60 &532516893
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2601,6 +2587,7 @@ MonoBehaviour:
   walk: {fileID: 1600741125}
   hurt: {fileID: 1349024027}
   jump: {fileID: 1084724343}
+  gameManager: {fileID: 136172015}
 --- !u!61 &603391843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2815,11 +2802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 1364622517}
@@ -4484,18 +4467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 136172015}
 --- !u!60 &692763443
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5200,11 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 686320162}
@@ -5417,7 +5385,7 @@ GameObject:
   - component: {fileID: 845331421}
   - component: {fileID: 845331422}
   m_Layer: 0
-  m_Name: Dead
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5691,11 +5659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 166636710}
@@ -5847,11 +5811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 1854518514}
@@ -5981,11 +5941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 437453041}
@@ -6085,7 +6041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1002100106
 Transform:
   m_ObjectHideFlags: 0
@@ -6143,11 +6099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 166636710}
   - {fileID: 890933490}
@@ -6412,11 +6364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 166636710}
@@ -6568,8 +6516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -7100,11 +7047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 166636710}
@@ -16783,11 +16726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 686320162}
@@ -17222,11 +17161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 437453041}
@@ -17520,11 +17455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 686320162}
@@ -17645,18 +17576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 0}
 --- !u!60 &1435530723
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -17834,11 +17754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 208645291}
@@ -18201,18 +18117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 136172015}
 --- !u!60 &1579935383
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18347,6 +18252,7 @@ MonoBehaviour:
   walk: {fileID: 281084476}
   hurt: {fileID: 796748805}
   jump: {fileID: 1918450422}
+  gameManager: {fileID: 136172015}
 --- !u!50 &1590399317
 Rigidbody2D:
   serializedVersion: 4
@@ -18684,8 +18590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -18852,11 +18757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 1364622517}
@@ -18994,11 +18895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1364622517}
   - {fileID: 686320162}
@@ -19174,8 +19071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -19305,11 +19201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 980100000}
@@ -19470,18 +19362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 0}
 --- !u!212 &1683057725
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19755,11 +19636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 890933490}
@@ -19879,8 +19756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 2
   funcion: {fileID: 51272399}
   button1: {fileID: 0}
@@ -20061,11 +19937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 0}
   botones:
   - {fileID: 1622335580}
   - {fileID: 1364622517}
@@ -20152,11 +20024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 1467630246}
@@ -20477,18 +20345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 0}
 --- !u!212 &1974899737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20615,18 +20472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 0}
 --- !u!212 &2029771687
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21144,11 +20990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13b86eba1cf25f4fbd3dc6937ecb099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 692763442}
-  - {fileID: 1579935382}
-  - {fileID: 2107483692}
-  - {fileID: 532516892}
+  gameManager: {fileID: 136172015}
   botones:
   - {fileID: 1017924966}
   - {fileID: 166636710}
@@ -21221,18 +21063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67917673d36a7b349bcff47bf20b7464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
-  player1: {fileID: 1590399315}
-  player2: {fileID: 603391841}
-  initPos1: {fileID: 419168373}
-  initPos2: {fileID: 1107825605}
-  pointsP1: 0
-  pointsP2: 0
-  maskTexture: {fileID: 2800000, guid: 9fadcd0a436fa934fad38b3d7a8f31f6, type: 3}
-  maskTexture2: {fileID: 2800000, guid: 7aa291bbddcda5f41a50cbb5d74b03b0, type: 3}
-  go: {fileID: 1515934825}
-  ready: {fileID: 507019354}
-  explode: {fileID: 845331422}
+  gameManager: {fileID: 136172015}
 --- !u!60 &2107483693
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21477,8 +21308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25979b27d19964dad78b66fdad6616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathObject:
-  - {fileID: 1435530722}
+  gameManager: {fileID: 0}
   colorButton: 1
   funcion: {fileID: 51272399}
   button1: {fileID: 0}

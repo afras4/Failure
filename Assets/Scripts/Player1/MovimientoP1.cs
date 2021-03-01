@@ -11,8 +11,8 @@ public class MovimientoP1 : MonoBehaviour
     public AudioSource walk;
     public AudioSource hurt;
     public AudioSource jump;
+    public GameManager gameManager;
     
-
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,13 @@ public class MovimientoP1 : MonoBehaviour
         else
         {
             anim.Play("MonoIddle");
+        }
+        if(gameManager.pointsP1<gameManager.pointsP2){
+            speed = 3f;
+            salto = 4f;
+        }else{
+            speed = 2f;
+            salto = 3f;
         }
 
 

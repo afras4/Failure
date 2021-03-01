@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using Prime31.TransitionKit;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class SceneController : MonoBehaviour
     float dirY, moveSpeed = 0.15f;
     void Start()
     {
+        StartCoroutine(endVideo());
         panel.SetActive(false);
         main.SetActive(true);
     }
@@ -70,5 +72,23 @@ public class SceneController : MonoBehaviour
 			};
 			TransitionKit.instance.transitionWithDelegate( slices );
 		}
-    
+    public void LoadSceneWin(string scenename)
+		{
+			var slices = new VerticalSlicesTransition()
+			{
+				nextScene = SceneManager.GetActiveScene().buildIndex == 0 ? 1 : 0,
+				divisions = Random.Range( 2, 10 )
+			};
+			TransitionKit.instance.transitionWithDelegate( slices );
+		}
+    IEnumerator endVideo()
+    {
+        yield return new WaitForSeconds(27f);
+        var slices = new VerticalSlicesTransition()
+			{
+				nextScene = SceneManager.GetActiveScene().buildIndex == 1 ? 2 : 1,
+				divisions = Random.Range( 2, 10 )
+			};
+			TransitionKit.instance.transitionWithDelegate( slices );
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Botones : MonoBehaviour
 {
-    public DeathObject[] deathObject;
+    public GameManager gameManager;
     public int colorButton;
     public GameObject funcion;
     public GameObject button1;
@@ -30,10 +30,7 @@ public class Botones : MonoBehaviour
         if(other.gameObject.tag == "Player1"){
             pressButton.Play();
             funcion.GetComponent<Boton> ().spawn();
-            deathObject[0].color = 0;
-            deathObject[1].color = 0;
-            deathObject[2].color = 0;
-            deathObject[3].color = 0;
+            gameManager.color = 0;
 
             button1.gameObject.SetActive(false);
             button2.gameObject.SetActive(false);
@@ -46,10 +43,7 @@ public class Botones : MonoBehaviour
         if(other.gameObject.tag == "Player2"){
             pressButton.Play();
             funcion.GetComponent<Boton> ().spawn();
-            deathObject[0].color = 0;
-            deathObject[1].color = 0;
-            deathObject[2].color = 0;
-            deathObject[3].color = 0; 
+            gameManager.color = 0;
 
             button1.gameObject.SetActive(false);
             button2.gameObject.SetActive(false);
