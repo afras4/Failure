@@ -9,9 +9,7 @@ public class GameManager : MonoBehaviour
     public Text txtPointsP1;
     public Text txtPointsP2;
     public Text txtTime;
-    private float startTime;
-    float dirY, moveSpeed = 0.08f;
-    float dirX, moveSpeed1 = 0.08f;
+
     public GameObject Number3;
     public GameObject Number2;
     public GameObject Number1;
@@ -21,14 +19,27 @@ public class GameManager : MonoBehaviour
     public GameObject TopSpike;
     public GameObject RightSpike;
     public GameObject LeftSpike;
-    public int spikeNumber;
+
     public bool move1;
     public bool move2;
     public bool move3;
     public bool move4;
     public bool gameStart;
-    public float timeRemaining = 300;
     public bool timerIsRunning = false;
+    public int spikeNumber;
+    private float startTime;
+    public float timeRemaining = 300;
+    float dirY, moveSpeed = 0.08f;
+    float dirX, moveSpeed1 = 0.08f;
+    public AudioSource fightMusic;
+    public AudioSource oneSound;
+    public AudioSource twoSound;
+    public AudioSource threeSound;
+    public AudioSource oneVoice;
+    public AudioSource twoVoice;
+    public AudioSource threeVoice;
+    public AudioSource goGogo;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -134,18 +145,26 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         Number3.gameObject.SetActive(true);
+        threeSound.Play();
+        threeVoice.Play();
         yield return new WaitForSeconds(1);
         Number3.gameObject.SetActive(false);
         Number2.gameObject.SetActive(true);
+        twoSound.Play();
+        twoVoice.Play();
         yield return new WaitForSeconds(1);
         Number2.gameObject.SetActive(false);
         Number1.gameObject.SetActive(true);
+        oneSound.Play();
+        oneVoice.Play();
         yield return new WaitForSeconds(1);
         Number1.gameObject.SetActive(false);
         TheTime.gameObject.SetActive(true);
         Players.gameObject.SetActive(true);
         startTime = Time.time;
         gameStart = true;
+        fightMusic.Play();
+        goGogo.Play();
         StartCoroutine(SpikesTurn());
     }
     IEnumerator SpikesTurn()

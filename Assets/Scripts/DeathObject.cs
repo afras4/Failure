@@ -23,11 +23,8 @@ public class DeathObject : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)){
-            color = color + 1;
-        }
-        if(color>2){
-            color = 0;
+        if(color == 0){
+        m_SpriteRenderer.color = Color.white;
         }
         if(color == 1){
         m_SpriteRenderer.color = new Color(0.2156863f,0.5882353f,0.7333333f,1);

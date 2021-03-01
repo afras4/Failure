@@ -22,24 +22,22 @@ public class Botones : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(colorButton == 1){
         if(other.gameObject.tag == "Player1"){
-            deathObject[0].color = 1;
-            deathObject[1].color = 1;
-            deathObject[2].color = 1;
-            deathObject[3].color = 1;
             funcion.GetComponent<Boton> ().spawn();
             this.gameObject.SetActive(false);
-            
+            deathObject[0].color = 0;
+            deathObject[1].color = 0;
+            deathObject[2].color = 0;
+            deathObject[3].color = 0;
         }    
         }
         if(colorButton == 2){
         if(other.gameObject.tag == "Player2"){
-            deathObject[0].color = 2;
-            deathObject[1].color = 2;
-            deathObject[2].color = 2;
-            deathObject[3].color = 2;
             funcion.GetComponent<Boton> ().spawn();
             this.gameObject.SetActive(false);
-              
+            deathObject[0].color = 0;
+            deathObject[1].color = 0;
+            deathObject[2].color = 0;
+            deathObject[3].color = 0;  
         }
         }
     

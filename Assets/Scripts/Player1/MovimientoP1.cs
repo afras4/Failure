@@ -8,6 +8,7 @@ public class MovimientoP1 : MonoBehaviour
     public float salto;
     public bool isFlipped;
     private Animator anim;
+    public AudioSource walk;
 
     private Rigidbody2D rb2d;
     // Start is called before the first frame update
@@ -41,10 +42,12 @@ public class MovimientoP1 : MonoBehaviour
 		}
         if(Input.GetAxis("Horizontal1")!=0)
         {
+            //walk.Play();
             anim.Play("MonoRun");
         }
         else
         {
+            //walk.Stop();
             anim.Play("MonoIddle");
         }
 

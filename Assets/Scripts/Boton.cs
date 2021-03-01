@@ -23,7 +23,7 @@ public class Boton : MonoBehaviour
         switch(ran)
         {
             case 1:
-             posicionesrojo[0].SetActive(true);
+            posicionesrojo[0].SetActive(true);
             break;
             
             case 2:
