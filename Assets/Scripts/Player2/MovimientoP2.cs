@@ -11,6 +11,8 @@ public class MovimientoP2 : MonoBehaviour
     public AudioSource walk;
     public AudioSource hurt;
     public AudioSource jump;
+    public GameObject particles1;
+    public GameObject particles2;
 
     private Rigidbody2D rb2d;
 
@@ -36,11 +38,13 @@ public class MovimientoP2 : MonoBehaviour
         transform.position += movimiento*speed*Time.deltaTime;
         if (Input.GetKey (KeyCode.LeftArrow)) 
 		{	
+            particles1.SetActive(true);
             isFlipped = false;
 			transform.localScale = new Vector3 (3.669608f, 3.669608f, 0f);
 		}
         if (Input.GetKey (KeyCode.RightArrow)) 
 		{	
+            particles1.SetActive(true);
             isFlipped = true;
 			transform.localScale = new Vector3 (-3.669608f, 3.669608f, 0f);
 		}
@@ -50,12 +54,23 @@ public class MovimientoP2 : MonoBehaviour
         }
         else
         {
+            particles1.SetActive(false);
             anim.Play("PatoIddle");
         }
         if(gameManager.pointsP1>gameManager.pointsP2){
+            particles2.SetActive(true);
             speed = 3f;
             salto = 4f;
+            if(Input.GetAxis("Horizontal1")!=0)
+            {
+                particles2.SetActive(true);
+            }
+            else
+            {
+                particles2.SetActive(false);
+            }
         }else{
+            particles2.SetActive(false);
             speed = 2f;
             salto = 3f;
         }

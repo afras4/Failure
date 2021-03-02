@@ -14,6 +14,8 @@ public class SceneController : MonoBehaviour
     public bool move1;
     public bool move2;
     float dirY, moveSpeed = 0.15f;
+    public AudioSource ok;
+    public AudioSource back;
     void Start()
     {
         StartCoroutine(endVideo());
@@ -56,15 +58,18 @@ public class SceneController : MonoBehaviour
         }
     }
     public void Credits(){
+        ok.Play();
         panel.SetActive(true);
         main.SetActive(false);
     }
     public void Back(){
+        back.Play();
         panel.SetActive(false);
         main.SetActive(true);
     }
     public void LoadScene(string scenename)
 		{
+            ok.Play();
 			var slices = new VerticalSlicesTransition()
 			{
 				nextScene = SceneManager.GetActiveScene().buildIndex == 1 ? 2 : 1,
@@ -74,6 +79,7 @@ public class SceneController : MonoBehaviour
 		}
     public void LoadSceneWin(string scenename)
 		{
+            back.Play();
 			var slices = new VerticalSlicesTransition()
 			{
 				nextScene = SceneManager.GetActiveScene().buildIndex == 0 ? 1 : 0,

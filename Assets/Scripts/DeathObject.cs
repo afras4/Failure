@@ -9,7 +9,6 @@ public class DeathObject : MonoBehaviour
     SpriteRenderer m_SpriteRenderer;
 
     void Start() {
-        gameManager.color = 0;
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_SpriteRenderer.color = Color.white;
     }

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject TopSpike;
     public GameObject RightSpike;
     public GameObject LeftSpike;
+    public GameObject funcion;
     public GameObject[] LeButtons;
 
     public bool move1;
@@ -50,15 +51,22 @@ public class GameManager : MonoBehaviour
     public AudioSource oneVoice;
     public AudioSource twoVoice;
     public AudioSource threeVoice;
+    public AudioSource fourVoice;
+    public AudioSource fiveVoice;
     public AudioSource goGogo;
     public AudioSource go;
     public AudioSource ready;
     public AudioSource explode;
+    public AudioSource monkeySound;
+    public AudioSource duckSound;
+    public AudioSource timeOver;
+    public AudioSource finalRound;
     
     
     // Start is called before the first frame update
     void Start()
     {
+        color=0;
         gameStart=false;
         move1=true;
         move2=true;
@@ -80,10 +88,10 @@ public class GameManager : MonoBehaviour
         float t = Time.time - startTime;
         timerIsRunning=true;
         if(spikeNumber == 1 || spikeNumber == 2){
-        if(DownSpike.transform.position.y > 0.11f){
+        if(DownSpike.transform.position.y > 0.112f){
             move1 = false;
         }
-        if(DownSpike.transform.position.y < -0.05f){
+        if(DownSpike.transform.position.y < -0.048f){
             move1 = true;
         }
         if(move1){
@@ -94,10 +102,10 @@ public class GameManager : MonoBehaviour
         }
 
         if(spikeNumber == 3 || spikeNumber == 4 || spikeNumber == 5){
-        if(TopSpike.transform.position.y > 2.032f){
+        if(TopSpike.transform.position.y > 2.06f){
             move2 = true;
         }
-        if(TopSpike.transform.position.y < 1.873f){
+        if(TopSpike.transform.position.y < 1.90f){
             move2 = false;
         }
         if(move2){
@@ -108,7 +116,7 @@ public class GameManager : MonoBehaviour
         }
 
         if(spikeNumber == 6){
-        if(LeftSpike.transform.position.x > -0.002f){
+        if(LeftSpike.transform.position.x > -0.001f){
             move3 = false;
         }
         if(LeftSpike.transform.position.x < -0.161f){
@@ -151,11 +159,11 @@ public class GameManager : MonoBehaviour
                 timerIsRunning = false;
                 if(pointsP1>pointsP2)
                 {
-                    SceneManager.LoadScene("VictoriaMono");	
+                SceneManager.LoadScene("VictoriaMono");	
                 }
                 else
                 {
-                    SceneManager.LoadScene("VictoriaPato");
+                SceneManager.LoadScene("VictoriaPato");
                 }
             }
         }
@@ -199,6 +207,16 @@ public class GameManager : MonoBehaviour
         fightMusic.Play();
         goGogo.Play();
         StartCoroutine(SpikesTurn());
+        yield return new WaitForSeconds(295f);
+        fiveVoice.Play();
+        yield return new WaitForSeconds(1);
+        fourVoice.Play();
+        yield return new WaitForSeconds(1);
+        threeVoice.Play();
+        yield return new WaitForSeconds(1);
+        twoVoice.Play();
+        yield return new WaitForSeconds(1);
+        timeOver.Play();
     }
     IEnumerator SpikesTurn()
     {
@@ -217,7 +235,9 @@ public class GameManager : MonoBehaviour
         txtTime.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     public void onResetSet1(){
+    color = 0;
     pointsP1 = pointsP1 + 1;
+    monkeySound.Play();
     var mask = new ImageMaskTransition()
 			{
 				maskTexture = maskTexture,
@@ -227,6 +247,8 @@ public class GameManager : MonoBehaviour
     StartCoroutine(Respawn());
     }
     public void onResetSet2(){
+    color = 0;
+    duckSound.Play();
     pointsP2 = pointsP2 + 1;
     var mask = new ImageMaskTransition()
 			{
@@ -241,14 +263,18 @@ public class GameManager : MonoBehaviour
         explode.Play();
         yield return new WaitForSeconds(0.9f);
         ready.Play();
+        yield return new WaitForSeconds(0.9f);
+        go.Play();
+        player1.transform.position = initPos1.position;
+        player2.transform.position = initPos2.position;
         for(int i = 0; i < LeButtons.Length; i++)
         {
             LeButtons[i].SetActive(false);
         }
+        funcion.GetComponent<Boton> ().spawn();
         yield return new WaitForSeconds(0.9f);
-        go.Play();
-        color = 0;
-        player1.transform.position = initPos1.position;
-        player2.transform.position = initPos2.position;
+        if(pointsP1 == 4 || pointsP2 == 4){
+            finalRound.Play();
+        }
     }
 }
